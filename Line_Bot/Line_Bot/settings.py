@@ -13,6 +13,12 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 import os
 
+import json
+
+#導入json資料
+with open('setting.json','r',encoding='utf8') as jfile:
+    jdata = json.load(jfile)
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -22,8 +28,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-t3_-pe6oj8z=-7gi5ihwycj5qm*s@-1^=%*el)l=^maio&k8&#"
-LINE_CHANNEL_ACCESS_TOKEN = 'Wl/eNj4CjI0DCwBibDGikgmD9Jip6YUSRWpZOYRVCotZ5cAiRIJVM6PqKT3IFZBEFW3xqpvHTyFgGKhDCMrj7U/gC97Xx1X1Oxc6oHzyKbSbOXKXDTGNSJHn6utW7nNkZUZWhlcq23dC/BO94Gw4RwdB04t89/1O/w1cDnyilFU='
-LINE_CHANNEL_SECRET = 'a4b06f9762e93f1791d6988bb0daeed2'
+LINE_CHANNEL_ACCESS_TOKEN = jdata['TOKEN']
+LINE_CHANNEL_SECRET = jdata['secret']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
